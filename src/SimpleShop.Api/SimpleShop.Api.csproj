@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SimpleShop.Application\SimpleShop.Application.csproj" />
+      <ProjectReference Include="..\SimpleShop.Domain\SimpleShop.Domain.csproj" />
+      <ProjectReference Include="..\SimpleShop.Infrastructure\SimpleShop.Infrastructure.csproj" />
+      <ProjectReference Include="..\SimpleShop.Persistence.EF\SimpleShop.Persistence.EF.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,16 @@
+.vscode/
+.idea/
+.vs/
+build/**/bin/*
+build/**/obj/*
+src/**/bin/*
+src/**/obj/*
+test/**/bin/*
+test/**/obj/*
+appsettings.*.json
+*.user
+/build/
+/test-results/
+/tools/
+*.local.json
+*.zip

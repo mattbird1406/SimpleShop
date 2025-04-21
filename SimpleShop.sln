@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleShop.Domain.Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleShop.Infrastructure", "src\SimpleShop.Infrastructure\SimpleShop.Infrastructure.csproj", "{994DE181-0632-4F5E-9832-7ACB94185019}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleShop.Persistence.EF", "src\SimpleShop.Persistence.EF\SimpleShop.Persistence.EF.csproj", "{EE0D40D1-AFD0-48A6-9EFE-1E35B163D44E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleShop.Infrastructure.Persistence.EF", "src\SimpleShop.Infrastructure.Persistence.EF\SimpleShop.Infrastructure.Persistence.EF.csproj", "{EE0D40D1-AFD0-48A6-9EFE-1E35B163D44E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

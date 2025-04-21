@@ -7,14 +7,22 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
+        <PackageReference Include="GraphQL" Version="8.5.0" />
+        <PackageReference Include="MediatR" Version="12.5.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+	<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.1" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\SimpleShop.Application\SimpleShop.Application.csproj" />
       <ProjectReference Include="..\SimpleShop.Domain\SimpleShop.Domain.csproj" />
       <ProjectReference Include="..\SimpleShop.Infrastructure\SimpleShop.Infrastructure.csproj" />
-      <ProjectReference Include="..\SimpleShop.Persistence.EF\SimpleShop.Persistence.EF.csproj" />
+      <ProjectReference Include="..\SimpleShop.Infrastructure.Persistence.EF\SimpleShop.Infrastructure.Persistence.EF.csproj" />
     </ItemGroup>
 
 </Project>

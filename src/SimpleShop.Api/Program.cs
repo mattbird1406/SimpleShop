@@ -2,13 +2,15 @@ using Microsoft.EntityFrameworkCore;
 using SimpleShop.Application.Features.Orders.CreateOrder;
 using SimpleShop.Infrastructure.Persistence;
 using SimpleShop.Infrastructure.Persistence.EF.Repositories;
+using SimpleShop.Api.GraphQL.Mutations;
+using SimpleShop.Api.GraphQL.Queries;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(); // Add this line to enable Swagger
+builder.Services.AddSwaggerGen(); // Swagger support
 
 builder.Services.AddDbContext<OrderDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -16,20 +18,31 @@ builder.Services.AddDbContext<OrderDbContext>(options =>
 // Register MediatR with the configuration action
 builder.Services.AddMediatR(cfg =>
 {
-    // Register services from the assembly containing CreateOrderHandler
     cfg.RegisterServicesFromAssembly(typeof(CreateOrderHandler).Assembly);
 });
+
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
+// Register GraphQL
+builder.Services
+    .AddGraphQLServer()
+    .AddQueryType<Query>()
+    .AddMutationType(d => d.Name("Mutation"))
+    .AddTypeExtension<OrderMutations>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger(); // Enable Swagger middleware
-    app.UseSwaggerUI(); // Enable Swagger UI
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 app.MapControllers();
+
+// Map GraphQL endpoint
+app.MapGraphQL(); // This will expose /graphql by default
+
 app.Run();
